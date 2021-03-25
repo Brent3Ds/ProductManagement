@@ -2,7 +2,7 @@
 
 // products
 
-let products = [
+let items = [
     {
         name: "Speakers",
         id: "ABAU000138",
@@ -25,7 +25,7 @@ let products = [
         instock: 0
     },
     {
-        name: "Keybaord",
+        name: "Keyboard",
         id: "RAZK000080",
         discription: "razer keybaord",
         price: "$145.99",
@@ -41,11 +41,27 @@ let products = [
 ]
 
 // Product select
-
-const itemSearch = (productName,itemCode) => {
+/*
+const itemSearch = (ProductName,itemCode) => {
     let product = []
-    for (let i = 0; i < products.length; i++){
-        if (products[i] === productName || itemCode)
-        product.push(product[i])
+    for (let i = 0; i < items.length; i++){
+        if (items[i].name = ProductName || items[i].id = itemCode){
+            product.push(items[i])
+        }
+    }
+    return product
+}
+//console.log(itemSearch("RAZK000080",))
+
+//BREOKEN ^^^^
+*/
+// Add to instock count
+
+const incomeing = (numz) => {
+    let stock = (numz + items.instock)
+    if (items.instock > 0){
+        items.instock = stock
     }
 }
+
+incomeing(7)
