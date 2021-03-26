@@ -41,27 +41,46 @@ let items = [
 ]
 
 // Product select
-/*
-const itemSearch = (ProductName,itemCode) => {
+
+const itemSearch = (ProductName) => {
     let product = []
     for (let i = 0; i < items.length; i++){
-        if (items[i].name = ProductName || items[i].id = itemCode){
+        if (items[i].name === ProductName || items[i].id === ProductName){
             product.push(items[i])
         }
     }
     return product
 }
-//console.log(itemSearch("RAZK000080",))
+//console.log(itemSearch("RAZK000080"))
 
-//BREOKEN ^^^^
-*/
 // Add to instock count
 
-const incomeing = (numz) => {
-    let stock = (numz + items.instock)
-    if (items.instock > 0){
-        items.instock = stock
+const incoming = (numz,Psearch) => {
+    for (let i = 0; i < items.length; i++){
+            let stock = numz + items[i].instock
+                if (items[i].name === Psearch || items[i].id === Psearch) {
+                    items[i].instock = stock
+                        //console.log(stock)
+            }
+
     }
 }
 
-incomeing(7)
+
+// Remove instock count
+
+const remove = (numz,Psearch) => {
+    for (let i = 0; i < items.length; i++){
+        let stock = items[i].instock - numz
+            if (items[i].name === Psearch || items[i].id === Psearch) {
+                items[i].instock = stock
+                    //console.log(stock)
+            }
+    }
+}
+
+incoming(100,"Mouse")
+
+remove(35,"Mouse")
+
+console.log(itemSearch("Mouse"))
