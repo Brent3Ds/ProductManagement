@@ -8,35 +8,51 @@ let items = [
         id: "ABAU000138",
         discription: "plays sounds",
         price: "$49.99",
-        instock: 0
+        instock: 0,
+        requestOrder: 0,
+        onHold: 0,
+        salable: 0
+
     },
     {
         name: "Ram",
         id: "RAMCS00120",
         discription: "Comp memory",
         price: "$159.99",
-        instock: 0
+        instock: 0,
+        requestOrder: 0,
+        onHold: 0,
+        salable: 0
     },
     {
         name: "MotherBoard",
         id: "MBASU000328",
         discription: "Computer part",
         price: "$219.99",
-        instock: 0
+        instock: 0,
+        requestOrder: 0,
+        onHold: 0,
+        salable: 0
     },
     {
         name: "Keyboard",
         id: "RAZK000080",
         discription: "razer keybaord",
         price: "$145.99",
-        instock: 0
+        instock: 0,
+        requestOrder: 0,
+        onHold: 0,
+        salable: 0
     },
     {
         name: "Mouse",
         id: "MARAZ00075",
         discription: "razer mouse",
         price: "$89.99",
-        instock: 0
+        instock: 0,
+        requestOrder: 0,
+        onHold: 0,
+        salable: 0
     }
 ]
 
@@ -79,8 +95,17 @@ const remove = (numz,Psearch) => {
     }
 }
 
-incoming(100,"Mouse")
+// Ordering an Item
 
-remove(35,"Mouse")
+const request = (numz,Psearch) => {
+    for ( i = 0; i < items.length; i++) {
+        let rO = items[i].requestOrder + numz
+            if (items[i].name === Psearch || items[i].id === Psearch) {
+                items[i].requestOrder = rO
+                    //console.log(rO)
+            }
+    }
+}
 
+ request(5,"Mouse")
 console.log(itemSearch("Mouse"))
